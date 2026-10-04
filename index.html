@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>South Side Hair Studio · Peluquería y Barbería</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff; --ink:#000000; --mute:#5c5c5c; --line:#d6d6d3; --soft:#f1f1ee;
+  --display:"Anton", Impact, "Arial Narrow", sans-serif;
+  --tag:"Permanent Marker", "Comic Sans MS", cursive;
+  --body:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --paper:#000000; --ink:#ffffff; --mute:#a3a3a3; --line:#2e2e2e; --soft:#141414; }
+}
+:root[data-theme="dark"]{ --paper:#000000; --ink:#ffffff; --mute:#a3a3a3; --line:#2e2e2e; --soft:#141414; }
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+img{max-width:100%}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* barra */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+.mark{font-family:var(--tag);font-size:22px;text-decoration:none;letter-spacing:.5px}
+.bar nav{display:flex;gap:18px;align-items:center;font-weight:500;font-size:15px}
+.bar nav a{text-decoration:none}
+.bar nav .hide-sm{display:none}
+@media(min-width:720px){.bar nav .hide-sm{display:inline}}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px;border:2px solid var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.bar .btn{padding:8px 16px;font-size:15px}
+
+/* hero */
+.hero{padding:44px 0 0;overflow:hidden}
+.tagline{font-family:var(--tag);font-size:clamp(64px,19vw,190px);line-height:.85;margin:0;transform:rotate(-3deg);transform-origin:left;white-space:nowrap}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,8.5vw,84px);line-height:1;margin:34px 0 0;max-width:12ch}
+.hero .lead{font-size:clamp(18px,2.4vw,21px);max-width:34ch;margin:20px 0 0;color:var(--mute)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:28px 0 0;padding:0;list-style:none;font-weight:500;font-size:15px}
+.facts li::before{content:"✂ ";}
+.tag-in{animation:spray .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes spray{from{opacity:0;transform:rotate(-3deg) translateX(-30px);filter:blur(6px)}to{opacity:1;transform:rotate(-3deg);filter:blur(0)}}
+@media (prefers-reduced-motion: reduce){.tag-in{animation:none}}
+
+/* franja tipo capa de barbero */
+.stripe{height:28px;margin:52px 0 0;background:repeating-linear-gradient(90deg,var(--ink) 0 14px,var(--paper) 14px 22px);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+
+section{padding:72px 0}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,6vw,56px);line-height:1.02;margin:0 0 14px}
+.intro{max-width:56ch;color:var(--mute);margin:0 0 34px}
+
+/* dueños */
+.owners{background:var(--ink);color:var(--paper)}
+.owners .grid{display:grid;gap:28px}
+@media(min-width:820px){.owners .grid{grid-template-columns:1.1fr 1fr;align-items:end}}
+.owners p{max-width:52ch;margin:0 0 14px;opacity:.85}
+.owners .quote{font-family:var(--tag);font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0}
+
+/* equipo */
+.team{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.barber{border:2px solid var(--ink);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:12px;background:var(--paper)}
+.ph{aspect-ratio:1/1;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-family:var(--display);font-size:64px;color:var(--mute);border:1px dashed var(--line)}
+.barber h3{font-family:var(--display);font-weight:400;font-size:30px;margin:0;line-height:1}
+.barber .spec{font-weight:700;font-size:15px;margin:0}
+.barber p{margin:0;color:var(--mute);font-size:15.5px}
+.barber .btn{margin-top:auto;text-align:center}
+
+/* precios */
+.prices{display:grid;gap:34px}
+@media(min-width:820px){.prices{grid-template-columns:1fr 1fr}}
+.prices h3{font-family:var(--tag);font-weight:400;font-size:28px;margin:0 0 6px}
+.row{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.row .t{font-size:14px;color:var(--mute)}
+.row .p{font-family:var(--display);font-size:22px;min-width:5ch;text-align:right}
+
+/* reseñas */
+.reviews{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.review{background:var(--soft);border-radius:20px;padding:24px;margin:0}
+.review .stars{letter-spacing:3px}
+.review blockquote{margin:10px 0 14px;font-size:18px}
+.review figcaption{font-weight:700;font-size:15px}
+
+/* ubicación */
+.where{display:grid;gap:26px}
+@media(min-width:820px){.where{grid-template-columns:1fr 1fr}}
+.where dl{margin:0}
+.where dt{font-weight:700;margin-top:16px}
+.where dd{margin:2px 0 0;color:var(--mute)}
+.map{border:2px solid var(--ink);border-radius:20px;min-height:240px;display:grid;place-items:center;text-align:center;padding:24px;background:var(--soft)}
+
+footer{border-top:2px solid var(--ink);padding:44px 0 56px;text-align:center}
+footer .mark{font-size:44px;display:block;transform:rotate(-3deg)}
+footer p{color:var(--mute);margin:12px 0 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top">South Side</a>
+    <nav>
+      <a class="hide-sm" href="#equipo">Equipo</a>
+      <a class="hide-sm" href="#precios">Precios</a>
+      <a class="hide-sm" href="#ubicacion">Ubicación</a>
+      <a class="btn" href="#reservar">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <p class="tagline tag-in" aria-hidden="true">South Side</p>
+      <h1>No somos una barbería cualquiera. Somos tu barbería.</h1>
+      <p class="lead">Esa barbería que, si la dejás, te arrepentís. Profesionales que te hacen sentir cómodo, como en familia.</p>
+      <div class="ctas" id="reservar">
+        <a class="btn" href="https://wa.me/549XXXXXXXXXX">Reservar por WhatsApp</a>
+        <a class="btn ghost" href="https://www.instagram.com/southside.hairstudio/">Ver trabajos en Instagram</a>
+      </div>
+      <ul class="facts">
+        <li>Atendida por sus dueños</li>
+        <li>Peluquería y barbería</li>
+        <li>Fades, diseños y color</li>
+      </ul>
+    </div>
+    <div class="stripe" aria-hidden="true"></div>
+  </div>
+
+  <section class="owners">
+    <div class="wrap grid">
+      <div>
+        <h2>Atendida por sus dueños</h2>
+        <p>En South Side no te atiende un empleado de turno. Te atienden los que levantaron este lugar, los que se juegan el nombre en cada corte.</p>
+        <p>Por eso te escuchamos antes de arrancar: qué te gusta, qué no, qué querés cambiar. Y después nos ocupamos de que salgas mejor de lo que entraste.</p>
+      </div>
+      <p class="quote">Acá venís una vez y volvés siempre.</p>
+    </div>
+  </section>
+
+  <section id="equipo">
+    <div class="wrap">
+      <h2>Encontrá tu profesional</h2>
+      <p class="intro">Cada uno tiene su mano y su estilo. Elegí con quién te sentís más cómodo y reservá directo con él.</p>
+      <div class="team">
+        <article class="barber">
+          <div class="ph" aria-hidden="true">B1</div>
+          <h3>Nombre</h3>
+          <p class="spec">Fades y cortes clásicos</p>
+          <p>Una o dos líneas sobre su estilo y en qué se destaca.</p>
+          <a class="btn" href="https://wa.me/549XXXXXXXXXX">Reservar con él</a>
+        </article>
+        <article class="barber">
+          <div class="ph" aria-hidden="true">B2</div>
+          <h3>Nombre</h3>
+          <p class="spec">Colorimetría</p>
+          <p>Una o dos líneas sobre su estilo y en qué se destaca.</p>
+          <a class="btn" href="https://wa.me/549XXXXXXXXXX">Reservar con él</a>
+        </article>
+        <article class="barber">
+          <div class="ph" aria-hidden="true">B3</div>
+          <h3>Nombre</h3>
+          <p class="spec">Diseños y freestyle</p>
+          <p>Una o dos líneas sobre su estilo y en qué se destaca.</p>
+          <a class="btn" href="https://wa.me/549XXXXXXXXXX">Reservar con él</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="precios" style="background:var(--soft)">
+    <div class="wrap">
+      <h2>Precios claros</h2>
+      <p class="intro">Elegí el servicio, escribinos y te confirmamos el turno.</p>
+      <div class="prices">
+        <div>
+          <h3>Cortes</h3>
+          <div class="row"><span>Corte</span><span class="t">40 min</span><span class="p">$—</span></div>
+          <div class="row"><span>Corte + barba</span><span class="t">50 min</span><span class="p">$—</span></div>
+          <div class="row"><span>Barba</span><span class="t">20 min</span><span class="p">$—</span></div>
+          <div class="row"><span>Corte + diseño</span><span class="t">50 min</span><span class="p">$—</span></div>
+        </div>
+        <div>
+          <h3>Color</h3>
+          <div class="row"><span>Platinado</span><span class="t">3 hs</span><span class="p">$—</span></div>
+          <div class="row"><span>Mechas</span><span class="t">3 hs</span><span class="p">$—</span></div>
+          <div class="row"><span>Color global</span><span class="t">4 hs</span><span class="p">$—</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Lo que dicen los clientes</h2>
+      <p class="intro">Reseñas reales de Google o Instagram.</p>
+      <div class="reviews">
+        <figure class="review"><div class="stars" aria-label="5 estrellas">★★★★★</div><blockquote>Acá va una reseña real de un cliente.</blockquote><figcaption>Nombre del cliente</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 estrellas">★★★★★</div><blockquote>Acá va una reseña real de un cliente.</blockquote><figcaption>Nombre del cliente</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 estrellas">★★★★★</div><blockquote>Acá va una reseña real de un cliente.</blockquote><figcaption>Nombre del cliente</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="ubicacion" style="padding-top:0">
+    <div class="wrap where">
+      <div>
+        <h2>Dónde estamos</h2>
+        <dl>
+          <dt>Dirección</dt><dd>Salta 1636, Ciudad</dd>
+          <dt>Horarios</dt><dd>Lunes a sábado, 10 a 20 h</dd>
+          <dt>Instagram</dt><dd><a href="https://www.instagram.com/southside.hairstudio/">@southside.hairstudio</a></dd>
+        </dl>
+        <p style="margin-top:24px"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Salta+1636">Cómo llegar</a></p>
+      </div>
+      <div class="map">Acá va el mapa o una foto del frente del local.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mark">South Side</span>
+    <p>Hair Studio · Peluquería y barbería</p>
+  </div>
+</footer>
+
+</body>
+</html>
